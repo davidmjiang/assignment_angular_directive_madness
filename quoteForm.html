@@ -1,9 +1,9 @@
-<form>
+<form name="quoteForm" ng-submit="pushQuoteOntoQuotes(quoteForm)">
   <label>Author</label>
-  <input type="text" ng-model="quote.author">
+  <input type="text" ng-model="quote.author" ng-minlength="2" ng-maxlength="32" name="author" required>
 
   <label>Message</label>
-  <input type="text" ng-model="quote.message">
-  <input type="submit" ng-click="pushQuoteOntoQuotes()">
+  <input type="text" ng-model="quote.message" name="message" required ng-minlength="2">
+  <input type="submit">
 </form>
 
