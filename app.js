@@ -42,5 +42,36 @@ directiveMadness.directive("copyright",
         scope.year = new Date().getFullYear();
       }
     }
+});
 
+directiveMadness.directive("colorize", function(){
+  return{
+    restrict: "A",
+    scope: {color: "@",
+            background: "@"},
+    link: function(scope, element, attributes) {
+      element.css("color", scope.color)
+             .css("background-color", scope.background);
+    }
+  }
+});
+
+directiveMadness.directive("mouseClick", function() {
+  return {
+    restrict: "A",
+    scope: {button: "@",
+            changeButton: "&"},
+    link: function(scope, element, attributes) {
+      scope.button = "UP"
+      scope.changeButton = function() {
+        console.log("WHAAAT");
+        if (scope.button === "DOWN") {
+          scope.button = "UP"
+        } else {
+          scope.button = "DOWN"
+        }
+      };
+      
+    }
+  }
 });
