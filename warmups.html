@@ -16,7 +16,7 @@
   <radio-form></radio-form>
   <p colorize color="orange" background="grey">HELLO THERE</p>
 
-  <p mouse-click button="{ 'direction': 'UP'}"></p>
+  <p ng-mouseup="buttonState='UP'" ng-mousedown="buttonState='DOWN'">Mouse is {{buttonState}}</p>
 
   <copyright>Viking School</copyright>
   <script src="app.js"></script>

@@ -56,16 +56,21 @@ directiveMadness.directive("colorize", function(){
 directiveMadness.directive("mouseClick", function() {
   return {
     restrict: "A",
-    template: "Mouse button is {{ button.direction }}",
-    scope: { button: "=" },
+    templateUrl: "mouseClick.html",
+    scope: { buttonState: "=" },
     link: function(scope, element, attributes) {
+      scope.buttonState = { 'direction': 'UP'};
+      scope.$watch(scope.buttonState.direction, function(){
+        console.log("something");
+      });
       element.on("click", function() {
-        console.log(scope.button.direction)
-          if (scope.button.direction === "DOWN") {
-            scope.button.direction = "UP"
+        console.log(scope.buttonState.direction);
+          if (scope.buttonState.direction === "DOWN") {
+            scope.buttonState.direction = "UP"
           } else {
-            scope.button.direction = "DOWN"
+            scope.buttonState.direction = "DOWN"
           }
+          // element.text("Mouse is "+ scope.button.direction);
       });
 
     }
