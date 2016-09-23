@@ -28,9 +28,9 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
 }]);
 
 directiveMadness.controller('ScopesCtrl', ['$scope', function($scope) {
-  $scope.oneWay = "";
-  $scope.twoWay = "";
-  $scope.sayHello = function(name) { alert("Hello " + name ) }
+  $scope.oneWay = "hello";
+  $scope.twoWay = "goodbye";
+  $scope.sayHello = function(name) { alert("Hello " + name ); };
 }]);
 
 directiveMadness.directive('isolated', function() {
@@ -41,8 +41,9 @@ directiveMadness.directive('isolated', function() {
              twoWay: "=",
              sayHello: "&" },
     link: function(scope) {
-      scope.oneWay += "inside link"
-      scope.twoWay += "inside link"
+      scope.oneWay += "inside link";
+      scope.twoWay += "inside link";
+      var hello = scope.sayHello;
     }
   }
 })
