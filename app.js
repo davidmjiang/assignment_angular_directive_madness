@@ -15,9 +15,6 @@ directiveMadness.directive('radioForm', function() {
     templateUrl: "radioForm.html",
     restrict: "E",
     scope: {formValue: "@"},
-    // link: function(scope) {
-    //   scope.formValue = 2;
-    // }
   }
 });
 
@@ -59,19 +56,19 @@ directiveMadness.directive("colorize", function(){
 directiveMadness.directive("mouseClick", function() {
   return {
     restrict: "A",
-    scope: {button: "@",
-            changeButton: "&"},
+    template: "Mouse button is {{ button.direction }}",
+    scope: { button: "=" },
     link: function(scope, element, attributes) {
-      scope.button = "UP"
-      scope.changeButton = function() {
-        console.log("WHAAAT");
-        if (scope.button === "DOWN") {
-          scope.button = "UP"
-        } else {
-          scope.button = "DOWN"
-        }
-      };
-      
+      element.on("click", function() {
+        console.log(scope.button.direction)
+          if (scope.button.direction === "DOWN") {
+            scope.button.direction = "UP"
+          } else {
+            scope.button.direction = "DOWN"
+          }
+      });
+
     }
   }
 });
+
