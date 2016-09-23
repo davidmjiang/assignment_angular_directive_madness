@@ -1,6 +1,6 @@
 var directiveMadness = angular.module('directiveMadness', []);
 
-directiveMadness.controller('QuotesCtrl' ['$scope', function($scope) {
+directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
 
 }]);
 
