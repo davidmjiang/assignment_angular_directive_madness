@@ -4,10 +4,12 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
 
   $scope.quotes = [];
   $scope.quote = {};
-  $scope.authorError;
+
   $scope.setErrors = function(form) {
     $scope.authorError = form.author.$error;
+    $scope.messageError = form.message.$error;
   };
+
   $scope.pushQuoteOntoQuotes = function(form) {
     if(form.$valid){
       $scope.quotes.push($scope.quote);
@@ -18,11 +20,32 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
       $scope.setErrors(form);
     }
   };
+
   $scope.deleteQuote = function(quote) {
     var i = $scope.quotes.indexOf(quote);
     $scope.quotes.splice(i, 1);
   }
 }]);
+
+directiveMadness.controller('ScopesCtrl', ['$scope', function($scope) {
+  $scope.oneWay = "";
+  $scope.twoWay = "";
+  $scope.sayHello = function(name) { alert("Hello " + name ) }
+}]);
+
+directiveMadness.directive('isolated', function() {
+  return {
+    templateUrl: '/isolated.html',
+    restrict: "AE",
+    scope: { oneWay: "@",
+             twoWay: "=",
+             sayHello: "&" },
+    link: function(scope) {
+      scope.oneWay += "inside link"
+      scope.twoWay += "inside link"
+    }
+  }
+})
 
 directiveMadness.directive('quoteForm', function() {
   return {

@@ -1,12 +1,17 @@
 <form name="quoteForm" ng-submit="pushQuoteOntoQuotes(quoteForm)" novalidate>
   <label>Author</label>
   <input type="text" ng-model="quote.author" ng-minlength="2" ng-maxlength="32" name="author" required>
+
    <p ng-if="authorError.minlength">Too short.</p>
    <p ng-if="authorError.maxlength">Too long.</p>
-   <p ng-if="authorError.required">Too is required.</p>
+   <p ng-if="authorError.required">Required</p>
    <br>
   <label>Message</label>
   <input type="text" ng-model="quote.message" name="message" required ng-minlength="2">
+   <p ng-if="messageError.minlength">Too short.</p>
+   <p ng-if="messageError.maxlength">Too long.</p>
+   <p ng-if="messageError.required">Required</p>
+
   <input type="submit">
 </form>
 

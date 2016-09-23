@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="directiveMadness" ng-controller="ScopesCtrl">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <title></title>
+</head>
+<body>
+  <main-header>Hello</main-header>
+  <main-nav hide="4"></main-nav>
+
+  <form>
+    <label for="oneWay">One Way</label>
+    <input type="text" name="" ng-model="oneWay">
+
+    <label for="twoWay">Two Way</label>
+    <input type="text" name="" ng-model="twoWay">
+  </form>
+
+  <p>One Way: {{ oneWay }}</p>
+  <p>Two Way: {{ twoWay }}</p>
+
+  <isolated></isolated>
+
+  <copyright>Viking School</copyright>
+  <script src="app.js"></script>
+</body>
+</html>
