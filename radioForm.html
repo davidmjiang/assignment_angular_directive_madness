@@ -1,12 +1,13 @@
 <p ng-if="!formValue">No Number is selected</p>
 <p ng-if="formValue % 2 === 0">Number is even</p>
-<p ng-if="formValue % 2 !== 0">Number is odd</p>
+<p ng-if="formValue && formValue % 2 !== 0">Number is odd</p>
 <p>{{ formValue }}</p>
 
-<form form-value="3">
-  <input name="radio-form" type="radio" value="1">1
-  <input name="radio-form" type="radio" value="2">2
-  <input name="radio-form" type="radio" value="3">3
-  <input name="radio-form" type="radio" value="4">4
-  <input name="radio-form" type="radio" value="5">5
+<form>
+  <input name="radio-form" type="radio" value="null" ng-model="formValue">clear
+  <input name="radio-form" type="radio" value="1" ng-model="formValue">1
+  <input name="radio-form" type="radio" value="2" ng-model="formValue">2
+  <input name="radio-form" type="radio" value="3" ng-model="formValue">3
+  <input name="radio-form" type="radio" value="4" ng-model="formValue">4
+  <input name="radio-form" type="radio" value="5" ng-model="formValue">5
 </form>
