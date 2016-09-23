@@ -43,7 +43,9 @@ directiveMadness.directive('isolated', function() {
     link: function(scope) {
       scope.oneWay += "inside link";
       scope.twoWay += "inside link";
-      var hello = scope.sayHello;
+      scope.hello = scope.sayHello;
+      scope.hello = function(name) { alert("Hello " + name.name + " from isolated scope!") };
+      scope.sayHello = scope.hello
     }
   }
 })
