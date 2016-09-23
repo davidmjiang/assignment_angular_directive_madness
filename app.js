@@ -3,9 +3,16 @@ var directiveMadness = angular.module('directiveMadness', []);
 directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
   $scope.quotes = [];
   $scope.quote = {};
-  $scope.pushQuoteOntoQuotes = function() {
-    $scope.quotes.push($scope.quote);
-    $scope.quote = {};
+  $scope.pushQuoteOntoQuotes = function(form) {
+    if(form.$valid){
+      $scope.quotes.push($scope.quote);
+      $scope.quote = {};
+      form.$setPristine()
+    }
+    else{
+      console.log(form.$error);
+      $errors = {};
+    }
   };
   $scope.deleteQuote = function(quote) {
     var i = $scope.quotes.indexOf(quote);

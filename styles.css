@@ -1,0 +1,11 @@
+input.ng-valid{
+ border: 6px solid green; 
+}
+
+input.ng-invalid{
+  border: 6px solid red;
+}
+
+input.ng-pristine{
+  border: 6px solid gray;
+}
