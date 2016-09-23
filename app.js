@@ -1,5 +1,25 @@
 var directiveMadness = angular.module('directiveMadness', []);
 
+directiveMadness.controller('QuotesCtrl' ['$scope', function($scope) {
+
+}]);
+
+directiveMadness.directive('quoteForm', function() {
+  return {
+    templateUrl: "quoteForm.html",
+    restrict: "E",
+    scope: true
+  }
+});
+
+directiveMadness.directive('quotesIndex', function() {
+  return {
+    templateUrl: "quotesIndex.html",
+    restrict: "E",
+    scope: true
+  }
+});
+
 directiveMadness.directive('mainNav', function() {
 
   return {

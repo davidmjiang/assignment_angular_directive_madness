@@ -3,6 +3,7 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -11,14 +12,10 @@
   <title></title>
 </head>
 <body>
-  <main-header>Warmup</main-header>
-  <main-nav hide="2"></main-nav>
-  <radio-form></radio-form>
-  <p colorize color="orange" background="grey">HELLO THERE</p>
+  <main-header>Quotes</main-header>
+  <main-nav hide="3"></main-nav>
 
-  <p ng-mouseup="buttonState='UP'" ng-mousedown="buttonState='DOWN'">Mouse is {{buttonState}}</p>
-  <p ng-mouseenter="hoverState = 'OVER'" ng-mouseleave="hoverState = 'LEAVE'">Hover state: {{hoverState}}</p>
-  <button ng-dblclick="double= 'double'" >I'm {{ double }} clickable</button>
+  <quoteForm><quoteForm>
 
   <copyright>Viking School</copyright>
   <script src="app.js"></script>
