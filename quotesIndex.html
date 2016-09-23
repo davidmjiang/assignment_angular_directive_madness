@@ -6,14 +6,22 @@
     <th>Author</th>
     <th>Message</th>
     <th>Delete</th>
+    <th>Edit</th>
+
   </tr>
   </thead>
 
   <tbody>
-    <tr ng-repeat="quote in quotes">
-      <td>{{ quote.author }}</td>
-      <td>{{ quote.message }}</td>
+
+    <tr ng-repeat="quote in quotes" >
+      <td ng-if="!editTracker.$index">{{ quote.author }}</td>
+      <td ng-if="!editTracker.$index">{{ quote.message }}</td>
       <td ng-click="deleteQuote(quote)">Delete</td>
+      <td ng-click="edit($index)">Edit</td>
+
+
+      <td ng-if="editTracker.$index"><input type="text" ng-model="quote.author"></td>
+      <td ng-if="editTracker.$index"><input type="text" ng-model="quote.message"></td>
     </tr>
 
   </tbody>

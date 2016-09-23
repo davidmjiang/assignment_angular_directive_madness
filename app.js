@@ -25,6 +25,12 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
     var i = $scope.quotes.indexOf(quote);
     $scope.quotes.splice(i, 1);
   }
+
+  $scope.editTracker = {};
+  $scope.edit = function(i) {
+        $scope.editTracker[i] = true;
+    console.log($scope.editTracker)
+      }
 }]);
 
 directiveMadness.controller('ScopesCtrl', ['$scope', function($scope) {
@@ -43,9 +49,15 @@ directiveMadness.directive('isolated', function() {
     link: function(scope) {
       scope.oneWay += "inside link";
       scope.twoWay += "inside link";
-      scope.hello = scope.sayHello;
-      scope.hello = function(name) { alert("Hello " + name.name + " from isolated scope!") };
-      scope.sayHello = scope.hello
+
+      var hello = scope.sayHello;
+
+      scope.sayHello = function(obj) {
+              obj.name += " from isolated scope!"
+              hello(obj) }
+
+      // scope.hello = function(name) { alert("Hello " + name.name + " from isolated scope!") };
+      // scope.sayHello = scope.hello
     }
   }
 })
@@ -64,6 +76,9 @@ directiveMadness.directive('quotesIndex', function() {
     templateUrl: "quotesIndex.html",
     restrict: "E",
     scope: true
+    // link: function(scope) {
+
+    // }
   }
 });
 
