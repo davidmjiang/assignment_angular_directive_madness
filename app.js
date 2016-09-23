@@ -2,6 +2,16 @@ var directiveMadness = angular.module('directiveMadness', []);
 
 directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
 
+  $scope.quotes = [];
+  $scope.quote = {};
+  $scope.pushQuoteOntoQuotes = function() {
+    $scope.quotes.push($scope.quote);
+    $scope.quote = {};
+  };
+  $scope.deleteQuote = function(quote) {
+    var i = $scope.quotes.indexOf(quote);
+    $scope.quotes.splice(i, 1);
+  }
 }]);
 
 directiveMadness.directive('quoteForm', function() {
@@ -11,6 +21,7 @@ directiveMadness.directive('quoteForm', function() {
     scope: true
   }
 });
+
 
 directiveMadness.directive('quotesIndex', function() {
   return {

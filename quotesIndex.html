@@ -1,0 +1,20 @@
+<h2 ng-show="quotes.length === 0">No Quotes Yet!</h2>
+
+<table class="table" ng-hide="quotes.length === 0">
+  <thead>
+  <tr>
+    <th>Author</th>
+    <th>Message</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="quote in quotes">
+      <td>{{ quote.author }}</td>
+      <td>{{ quote.message }}</td>
+      <td ng-click="deleteQuote(quote)">Delete</td>
+    </tr>
+
+  </tbody>
+</table>
