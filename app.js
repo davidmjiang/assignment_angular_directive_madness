@@ -29,8 +29,10 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
   $scope.editTracker = {};
   $scope.edit = function(i) {
         $scope.editTracker[i] = true;
-    console.log($scope.editTracker)
-      }
+      };
+  $scope.updateQuote = function(index){
+    $scope.editTracker[index] = false;
+  };
 }]);
 
 directiveMadness.controller('ScopesCtrl', ['$scope', function($scope) {

@@ -14,14 +14,15 @@
   <tbody>
 
     <tr ng-repeat="quote in quotes" >
-      <td ng-if="!editTracker.$index">{{ quote.author }}</td>
-      <td ng-if="!editTracker.$index">{{ quote.message }}</td>
+      <td ng-if="!editTracker[$index.toString()]">{{ quote.author }}</td>
+      <td ng-if="editTracker[$index.toString()]"><input type="text" ng-model="quote.author"></td>
+      <td ng-if="!editTracker[$index.toString()]">{{ quote.message }}</td>
+      <td ng-if="editTracker[$index.toString()]"><input type="text" ng-model="quote.message"></td>
+
       <td ng-click="deleteQuote(quote)">Delete</td>
-      <td ng-click="edit($index)">Edit</td>
+      <td ng-click="edit($index)" ng-if="!editTracker[$index.toString()]">Edit</td>
+      <td ng-if="editTracker[$index.toString()]" ng-click="updateQuote($index)">Update</td>
 
-
-      <td ng-if="editTracker.$index"><input type="text" ng-model="quote.author"></td>
-      <td ng-if="editTracker.$index"><input type="text" ng-model="quote.message"></td>
     </tr>
 
   </tbody>
