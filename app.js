@@ -4,15 +4,18 @@ directiveMadness.controller('QuotesCtrl', ['$scope', function($scope) {
 
   $scope.quotes = [];
   $scope.quote = {};
+  $scope.authorError;
+  $scope.setErrors = function(form) {
+    $scope.authorError = form.author.$error;
+  };
   $scope.pushQuoteOntoQuotes = function(form) {
     if(form.$valid){
       $scope.quotes.push($scope.quote);
       $scope.quote = {};
-      form.$setPristine()
+      form.$setPristine();
     }
     else{
-      console.log(form.$error);
-      $errors = {};
+      $scope.setErrors(form);
     }
   };
   $scope.deleteQuote = function(quote) {
